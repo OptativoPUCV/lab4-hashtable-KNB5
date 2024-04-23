@@ -154,3 +154,18 @@ hashmap.c:81:1: error: control reaches end of non-void function [-Werror=return-
 cc1: all warnings being treated as errors
 Compilation failed
 084b8a4
+Tue 23 Apr 2024 08:51:07 PM UTC: 
+ hashmap.c | 2 --
+ 1 file changed, 2 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:46:58: error: comparison between pointer and integer [-Werror]
+   46 |   while(map->buckets[pos]!=NULL || map->buckets[pos]->key!= -1)
+      |                                                          ^~
+hashmap.c: In function ‘searchMap’:
+hashmap.c:79:1: error: control reaches end of non-void function [-Werror=return-type]
+   79 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+c99f7c8
