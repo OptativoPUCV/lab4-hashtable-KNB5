@@ -169,3 +169,17 @@ hashmap.c:79:1: error: control reaches end of non-void function [-Werror=return-
 cc1: all warnings being treated as errors
 Compilation failed
 c99f7c8
+Tue 23 Apr 2024 08:51:23 PM UTC: 
+ hashmap.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:79:8: error: unused variable ‘pos’ [-Werror=unused-variable]
+   79 |   long pos = hash(key,map->capacity);
+      |        ^~~
+hashmap.c:81:1: error: control reaches end of non-void function [-Werror=return-type]
+   81 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+b1f2178
