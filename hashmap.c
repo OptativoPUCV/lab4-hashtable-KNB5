@@ -102,6 +102,10 @@ void eraseMap(HashMap * map,  char * key)
 {    
   if(map==NULL || key==NULL) return;
   long pos = hash(key, map->capacity);
+  if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL)
+  {
+    return;
+  }
   map->buckets[pos]->key = NULL;
   map->size--;
 }
