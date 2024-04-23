@@ -253,3 +253,18 @@ Tue 23 Apr 2024 09:30:59 PM UTC:
  1 file changed, 1 insertion(+), 35 deletions(-)
  tests:  0|0
 387ad87
+Tue 23 Apr 2024 09:39:28 PM UTC: 
+ hashmap.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:105:16: error: ‘i’ undeclared (first use in this function)
+  105 |   map->buckets[i]->key = NULL;
+      |                ^
+hashmap.c:105:16: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:104:8: error: unused variable ‘pos’ [-Werror=unused-variable]
+  104 |   long pos = hash(key, map->capacity);
+      |        ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+68865d8
