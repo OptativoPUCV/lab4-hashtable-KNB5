@@ -50,13 +50,31 @@ void insertMap(HashMap * map, char * key, void * value)
     map->current = posicion;
     map->size++;
   }
-  return;
+  else
+  {
+    while(map->buckets[posicion]!=NULL && map->buckets[posicion]->key!=NULL)
+      {
+        posicion++;
+        if(posicion==map->capacity)
+        {
+          enlarge(map);
+          insertMap(map, key, value);
+          posicion = 0;
+        }
+      }
+  }
 }
 
-void enlarge(HashMap * map) {
-    enlarge_called = 1; //no borrar (testing purposes)
-
-
+void enlarge(HashMap * map) 
+{
+  enlarge_called = 1; //no borrar (testing purposes)
+  Pair** auxArray = map->buckets;
+  map->capacity = map->capacity*2;
+  map->buckets = (Pair**)malloc(sizeof(Pair*)*map->capacity);
+  for(int i=0; i<map->capacity; i++)
+    {
+      insertMap(map, auxArray[i]->key, auxArray[i]->value);
+    }
 }
 
 
