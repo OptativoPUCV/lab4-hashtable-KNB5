@@ -56,3 +56,9 @@ hashmap.c:44:31: error: suggest parentheses around ‘&&’ within ‘||’ [-We
 cc1: all warnings being treated as errors
 Compilation failed
 8e85b55
+Tue 23 Apr 2024 08:29:55 PM UTC: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  5|4
+total_score: 30/70
+cbec04a
