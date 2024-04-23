@@ -69,7 +69,8 @@ void enlarge(HashMap * map)
   map->size = 0;
   for(int i = 0; i < map->capacity; i++)
     {
-      insertMap(map, auxArray[i]->key, auxArray[i]->value);
+      int pos = hash(auxArray[i]->key, map->capacity);
+      insertMap(map, auxArray[pos]->key, auxArray[pos]->value);
     }
 }
 
