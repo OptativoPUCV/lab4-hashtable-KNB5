@@ -43,7 +43,7 @@ void insertMap(HashMap * map, char * key, void * value)
 {
   if(map==NULL || key==NULL || value==NULL) return;
   long pos = hash(key,map->capacity);
-  while(map->buckets[pos]!=NULL && map->buckets[pos]->key!=NULL)
+  while(map->buckets[pos]!=NULL || map->buckets[pos]->key!= -1)
     {
       pos = (pos+1)%map->capacity;
     }
@@ -77,14 +77,7 @@ Pair * searchMap(HashMap * map,  char * key)
 {   
   if(map==NULL || key==NULL) return NULL;
   long pos = hash(key,map->capacity);
-  while(map->buckets[pos]!=NULL && map->buckets[pos]->key!=NULL)
-    {
-      if(map->buckets[pos]->key == key)
-        {
-          return map->buckets[pos];
-        }
-      pos = (pos+1)%map->capacity;
-    }
+  
 }
 
 Pair * firstMap(HashMap * map) {
