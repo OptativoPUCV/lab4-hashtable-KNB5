@@ -149,7 +149,21 @@ Pair * firstMap(HashMap * map)
     return NULL;
 }
 
-Pair * nextMap(HashMap * map) {
-
-    return NULL;
+Pair * nextMap(HashMap * map) 
+{
+  if(map==NULL) return NULL;
+  if(map->buckets[map->current + 1] != NULL && map->buckets[map->current + 1]->key != NULL)
+  {
+    map->current++;
+    return map->buckets[map->current];
+  }
+  else
+  {
+    while(map->buckets[map->current+1] == NULL && map->buckets[map->current + 1]->key == NULL)
+    {
+      map->current++;
+    }
+    return map->buckets[map->current];
+  }
+  return NULL;
 }
