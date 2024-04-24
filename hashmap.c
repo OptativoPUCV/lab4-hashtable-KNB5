@@ -131,9 +131,9 @@ Pair * searchMap(HashMap * map,  char * key)
 Pair * firstMap(HashMap * map) 
 {
   if(map==NULL) return NULL;
-  map->current = -1;
   if(map->buckets[0] != NULL && map->buckets[0]->key != NULL)
   {
+    map->current = 0;
     return map->buckets[0];
   }
   else
@@ -143,7 +143,7 @@ Pair * firstMap(HashMap * map)
     {
       i++;
     }
-    map->current = i + 1;
+    map->current = i;
     return map->buckets[i];
   }
     return NULL;
