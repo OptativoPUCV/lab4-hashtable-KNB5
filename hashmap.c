@@ -71,7 +71,7 @@ void enlarge(HashMap * map)
   map->buckets = (Pair**)malloc(sizeof(Pair*)*map->capacity);
   map->size = 0;
   
-  for(int i = 0; i < oldCapacity; i++)
+  for(int i = 0; i < oldCapacity / 2; i++)
     {
       if(oldArray[i] != NULL)
       {
@@ -102,10 +102,6 @@ void eraseMap(HashMap * map,  char * key)
 {    
   if(map==NULL || key==NULL) return;
   long pos = hash(key, map->capacity);
-  if(map->buckets[pos] == NULL || map->buckets[pos]->key == NULL)
-  {
-    return;
-  }
   map->buckets[pos]->key = NULL;
   map->size--;
 }
