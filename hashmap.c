@@ -128,8 +128,23 @@ Pair * searchMap(HashMap * map,  char * key)
   return NULL;
 }
 
-Pair * firstMap(HashMap * map) {
-
+Pair * firstMap(HashMap * map) 
+{
+  if(map==NULL) return NULL;
+  map->current = -1;
+  if(map->buckets[0] != NULL && map->buckets[0]->key != NULL)
+  {
+    return map->buckets[0];
+  }
+  else
+  {
+    long i = 0;
+    while(map->buckets[i] == NULL || map->buckets[i]->key == NULL)
+    {
+      i++;
+    }
+    return map->buckets[i];
+  }
     return NULL;
 }
 
